@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Functions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f6fb;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+      line-height: 1.6;
+    }
+    header { margin-bottom: 25px; }
+    h1.page {
+      font-size: 24px;
+      font-weight: 600;
+      background: linear-gradient(90deg, #ff7e5f, #feb47b);
+      color: white;
+      padding: 12px 18px;
+      border-radius: 10px;
+      display: inline-block;
+      margin: 0;
+    }
+    h2 {
+      font-size: 20px;
+      font-weight: 600;
+      background: linear-gradient(90deg, #ff7e5f, #feb47b);
+      color: white;
+      padding: 8px 14px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 25px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 18px;
+      margin: 18px 0;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+    .points {
+      background: #fff4e6;
+      border-left: 5px solid #ff7e5f;
+      padding: 12px 15px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+    .points ul { margin:0; padding-left:18px; }
+    .points li { margin-bottom:6px; }
+    .code-label, .output-label { font-weight:600; color:#ff7e5f; margin:12px 0 8px; }
+    .code-block {
+      background: #1e1e2f;
+      padding: 12px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 14px;
+      white-space: pre;
+      line-height: 1.5;
+      color: #dcdcdc;
+      overflow-x:auto;
+    }
+    .keyword { color:#4ec9b0; }
+    .varname { color:#9cdcfe; }
+    .value { color:#ce9178; }
+    .funcname { color:#dcdcaa; }
+    .output {
+      border: 1px solid #ddd;
+      background: #fafafa;
+      padding: 14px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 class="page">JavaScript Functions</h1>
+  </header>
+
+  <!-- 1️⃣ Function Declaration -->
+  <h2>1. Function Declaration</h2>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Declared using the <code>function</code> keyword.</li>
+        <li>Can be called anywhere in the code (hoisted).</li>
+      </ul>
+    </div>
+    <div class="code-label">Example:</div>
+    <div class="code-block"><pre><code>
+function greet() {
+  console.log("Hello, World!");
+}
+
+greet();
+</code></pre></div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      Hello, World!
+    </div>
+  </div>
+
+  <!-- 2️⃣ Function Expression -->
+  <h2>2. Function Expression</h2>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Stored inside a variable.</li>
+        <li>Not hoisted (must be declared before use).</li>
+      </ul>
+    </div>
+    <div class="code-label">Example:</div>
+    <div class="code-block"><pre><code>
+const add = function(a, b) {
+  return a + b;
+};
+
+console.log(add(5, 3));
+</code></pre></div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      8
+    </div>
+  </div>
+
+  <!-- 3️⃣ Return Statement -->
+  <h2>3. Return Statement</h2>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li><code>return</code> sends a value back from a function.</li>
+        <li>Without <code>return</code>, the function returns <code>undefined</code>.</li>
+      </ul>
+    </div>
+    <div class="code-label">Example:</div>
+    <div class="code-block"><pre><code>
+function square(num) {
+  return num * num;
+}
+
+console.log(square(4));
+</code></pre></div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      16
+    </div>
+  </div>
+
+  <!-- 4️⃣ Parameters & Default Parameters -->
+  <h2>4. Parameters & Default Parameters</h2>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Functions can take <b>parameters</b> (inputs).</li>
+        <li>Default values can be provided if no argument is passed.</li>
+      </ul>
+    </div>
+    <div class="code-label">Example:</div>
+    <div class="code-block"><pre><code>
+function welcome(name = "Guest") {
+  console.log("Welcome, " + name);
+}
+
+welcome("Alice");
+welcome();
+</code></pre></div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      Welcome, Alice<br>
+      Welcome, Guest
+    </div>
+  </div>
+
+  <!-- 5️⃣ Arrow Functions -->
+  <h2>5. Arrow Functions</h2>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Introduced in ES6.</li>
+        <li>Shorter syntax for writing functions.</li>
+        <li>Does not have its own <code>this</code> binding.</li>
+      </ul>
+    </div>
+    <div class="code-label">Example:</div>
+    <div class="code-block"><pre><code>
+const multiply = (a, b) => a * b;
+
+console.log(multiply(4, 5));
+</code></pre></div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      20
+    </div>
+  </div>
+
+  <!-- 6️⃣ Callback Functions -->
+  <h2>6. Callback Functions</h2>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>A <b>callback</b> is a function passed as an argument to another function.</li>
+        <li>Used when we want a function to run after another function finishes.</li>
+      </ul>
+    </div>
+    <div class="code-label">Example:</div>
+    <div class="code-block"><pre><code>
+function displayResult(result) {
+  console.log("Result: " + result);
+}
+
+function calculate(a, b, callback) {
+  let sum = a + b;
+  callback(sum);
+}
+
+calculate(5, 10, displayResult);
+</code></pre></div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      Result: 15
+    </div>
+  </div>
+
+  <!-- 7️⃣ Anonymous Functions -->
+  <h2>7. Anonymous Functions</h2>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>An <b>anonymous function</b> is a function without a name.</li>
+        <li>Often used as arguments in other functions (like callbacks or event handlers).</li>
+        <li>Cannot be called directly since it doesn’t have a name.</li>
+      </ul>
+    </div>
+    <div class="code-label">Example:</div>
+    <div class="code-block"><pre><code>
+// Using an anonymous function as a callback
+setTimeout(function() {
+  console.log("This message appears after 2 seconds");
+}, 2000);
+</code></pre></div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      This message appears after 2 seconds
+    </div>
+  </div>
+
+</body>
+</html>

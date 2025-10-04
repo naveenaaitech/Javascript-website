@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Data Types</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f6fb;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      margin-bottom: 25px;
+    }
+    h1.page {
+      font-size: 24px;
+      font-weight: 600;
+      background: linear-gradient(90deg, #ff7e5f, #feb47b);
+      color: white;
+      padding: 12px 18px;
+      border-radius: 10px;
+      display: inline-block;
+      margin: 0;
+    }
+    h2 {
+      font-size: 20px;
+      font-weight: 600;
+      background: linear-gradient(90deg, #ff7e5f, #feb47b);
+      color: white;
+      padding: 8px 14px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 25px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 18px;
+      margin: 18px 0;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+    .points {
+      background: #fff4e6;
+      border-left: 5px solid #ff7e5f;
+      padding: 12px 15px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+    .points ul { margin:0; padding-left:18px; }
+    .points li { margin-bottom:6px; }
+    .code-label, .output-label { font-weight:600; color:#ff7e5f; margin:12px 0 8px; }
+    .code-block {
+      background: #1e1e2f;
+      padding: 12px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 14px;
+      white-space: pre;
+      line-height: 1.5;
+      color: #dcdcdc;
+      overflow-x:auto;
+    }
+    .keyword { color:#4ec9b0; }
+    .varname { color:#9cdcfe; }
+    .value { color:#ce9178; }
+    .output {
+      border: 1px solid #ddd;
+      background: #fafafa;
+      padding: 14px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Main Title -->
+  <header>
+    <h1 class="page">JavaScript Data Types</h1>
+  </header>
+
+  <!-- 1. String -->
+  <h2>1. String</h2>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Represents textual data enclosed in quotes (<code>" "</code> or <code>' '</code>).</li>
+        <li>Used for words, sentences, or characters.</li>
+      </ul>
+    </div>
+    <div class="code-label">Example:</div>
+    <div class="code-block"><pre><code>
+<span class="keyword">let</span> <span class="varname">name</span> = <span class="value">"Alice"</span>;
+console.log(name);
+</code></pre></div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      Alice
+    </div>
+  </div>
+
+  <!-- 2. Number -->
+  <h2>2. Number</h2>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Represents numeric values (integer or decimal).</li>
+        <li>No separate type for integers and floats in JavaScript.</li>
+      </ul>
+    </div>
+    <div class="code-label">Example:</div>
+    <div class="code-block"><pre><code>
+<span class="keyword">let</span> <span class="varname">age</span> = <span class="value">30</span>;
+<span class="keyword">let</span> <span class="varname">price</span> = <span class="value">99.99</span>;
+console.log(age, price);
+</code></pre></div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      30 99.99
+    </div>
+  </div>
+
+  <!-- 3. Boolean -->
+  <h2>3. Boolean</h2>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Represents logical values: <code>true</code> or <code>false</code>.</li>
+        <li>Used in conditions and comparisons.</li>
+      </ul>
+    </div>
+    <div class="code-label">Example:</div>
+    <div class="code-block"><pre><code>
+<span class="keyword">let</span> <span class="varname">isStudent</span> = <span class="keyword">true</span>;
+console.log(isStudent);
+</code></pre></div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      true
+    </div>
+  </div>
+
+  <!-- 4. Undefined -->
+  <h2>4. Undefined</h2>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>A variable declared but not assigned has the value <code>undefined</code>.</li>
+      </ul>
+    </div>
+    <div class="code-label">Example:</div>
+    <div class="code-block"><pre><code>
+<span class="keyword">let</span> <span class="varname">x</span>;
+console.log(x);
+</code></pre></div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      undefined
+    </div>
+  </div>
+
+  <!-- 5. Null -->
+  <h2>5. Null</h2>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Represents an empty or unknown value.</li>
+        <li>Explicitly set by the programmer.</li>
+      </ul>
+    </div>
+    <div class="code-label">Example:</div>
+    <div class="code-block"><pre><code>
+<span class="keyword">let</span> <span class="varname">y</span> = <span class="keyword">null</span>;
+console.log(y);
+</code></pre></div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      null
+    </div>
+  </div>
+
+  <!-- 6. Object -->
+  <h2>6. Object</h2>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Used to store collections of data in <b>key-value</b> pairs.</li>
+      </ul>
+    </div>
+    <div class="code-label">Example:</div>
+    <div class="code-block"><pre><code>
+<span class="keyword">let</span> <span class="varname">person</span> = {
+  <span class="varname">name</span>: <span class="value">"Bob"</span>,
+  <span class="varname">age</span>: <span class="value">25</span>
+};
+console.log(person.name, person.age);
+</code></pre></div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      Bob 25
+    </div>
+  </div>
+
+  <!-- 7. Array -->
+  <h2>7. Array</h2>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Special type of object used to store multiple values.</li>
+        <li>Values are ordered and accessed by index (starting from 0).</li>
+      </ul>
+    </div>
+    <div class="code-label">Example:</div>
+    <div class="code-block"><pre><code>
+<span class="keyword">let</span> <span class="varname">colors</span> = [<span class="value">"red"</span>, <span class="value">"green"</span>, <span class="value">"blue"</span>];
+console.log(colors[0], colors[2]);
+</code></pre></div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      red blue
+    </div>
+  </div>
+
+  <!-- 8. Symbol -->
+  <h2>8. Symbol</h2>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Introduced in ES6.</li>
+        <li>Represents a unique and immutable identifier.</li>
+      </ul>
+    </div>
+    <div class="code-label">Example:</div>
+    <div class="code-block"><pre><code>
+<span class="keyword">let</span> <span class="varname">id</span> = <span class="keyword">Symbol</span>(<span class="value">"uniqueId"</span>);
+console.log(id);
+</code></pre></div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      Symbol(uniqueId)
+    </div>
+  </div>
+
+  <!-- 9. BigInt -->
+  <h2>9. BigInt</h2>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Used to represent integers larger than <code>Number.MAX_SAFE_INTEGER</code>.</li>
+        <li>Created by appending <code>n</code> at the end of the number.</li>
+      </ul>
+    </div>
+    <div class="code-label">Example:</div>
+    <div class="code-block"><pre><code>
+<span class="keyword">let</span> <span class="varname">bigNum</span> = 123456789012345678901234567890n;
+console.log(bigNum);
+</code></pre></div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      123456789012345678901234567890n
+    </div>
+  </div>
+
+</body>
+</html>

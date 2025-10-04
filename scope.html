@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Scope</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f6fb;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+      line-height: 1.6;
+    }
+    header { margin-bottom: 25px; }
+    h1.page {
+      font-size: 24px;
+      font-weight: 600;
+      background: linear-gradient(90deg, #ff7e5f, #feb47b);
+      color: white;
+      padding: 12px 18px;
+      border-radius: 10px;
+      display: inline-block;
+      margin: 0;
+    }
+    h2 {
+      font-size: 20px;
+      font-weight: 600;
+      background: linear-gradient(90deg, #ff7e5f, #feb47b);
+      color: white;
+      padding: 8px 14px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 25px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 18px;
+      margin: 18px 0;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+    .points {
+      background: #fff4e6;
+      border-left: 5px solid #ff7e5f;
+      padding: 12px 15px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+    .points ul { margin:0; padding-left:18px; }
+    .points li { margin-bottom:6px; }
+    .code-label, .output-label { font-weight:600; color:#ff7e5f; margin:12px 0 8px; }
+    .code-block {
+      background: #1e1e2f;
+      padding: 12px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 14px;
+      white-space: pre;
+      line-height: 1.5;
+      color: #dcdcdc;
+      overflow-x:auto;
+    }
+    .keyword { color:#4ec9b0; }
+    .varname { color:#9cdcfe; }
+    .value { color:#ce9178; }
+    .funcname { color:#dcdcaa; }
+    .comment { color:#6a9955; }
+    .output {
+      border: 1px solid #ddd;
+      background: #fafafa;
+      padding: 14px;
+      border-radius: 8px;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 class="page">JavaScript Scope</h1>
+  </header>
+
+  <!-- 1. What is Scope -->
+  <h2>1. What is Scope?</h2>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Scope determines the accessibility of variables in different parts of the code.</li>
+        <li>It controls where a variable can be accessed or modified.</li>
+      </ul>
+    </div>
+    <div class="output-label">Example Preview:</div>
+    <div class="output">
+      Variables defined in one scope are not accessible in another scope.
+    </div>
+  </div>
+
+  <!-- 2. Global Scope -->
+  <h2>2. Global Scope</h2>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Variables declared outside any function have global scope.</li>
+        <li>They can be accessed from anywhere in the code.</li>
+      </ul>
+    </div>
+    <div class="code-label">Example:</div>
+    <div class="code-block"><pre><code>
+<span class="keyword">var</span> globalVar = "I am global";
+
+<span class="keyword">function</span> showGlobal() {
+  console.log(globalVar);
+}
+
+showGlobal(); <span class="comment">// I am global</span>
+console.log(globalVar); <span class="comment">// I am global</span>
+</code></pre></div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      I am global<br>
+      I am global
+    </div>
+  </div>
+
+  <!-- 3. Local / Function Scope -->
+  <h2>3. Local / Function Scope</h2>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Variables declared inside a function are local to that function.</li>
+        <li>They cannot be accessed outside the function.</li>
+      </ul>
+    </div>
+    <div class="code-label">Example:</div>
+    <div class="code-block"><pre><code>
+<span class="keyword">function</span> localScope() {
+  <span class="keyword">var</span> localVar = "I am local";
+  console.log(localVar);
+}
+
+localScope(); <span class="comment">// I am local</span>
+<span class="keyword">console</span>.log(typeof localVar); <span class="comment">// undefined</span>
+</code></pre></div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      I am local<br>
+      undefined
+    </div>
+  </div>
+
+  <!-- 4. Block Scope -->
+  <h2>4. Block Scope (let & const)</h2>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Variables declared with <code>let</code> or <code>const</code> inside a block {} are block-scoped.</li>
+        <li>They are not accessible outside the block.</li>
+      </ul>
+    </div>
+    <div class="code-label">Example:</div>
+    <div class="code-block"><pre><code>
+{
+  <span class="keyword">let</span> blockVar = "I am block scoped";
+  <span class="keyword">const</span> blockConst = "I am also block scoped";
+  console.log(blockVar);
+  console.log(blockConst);
+}
+
+console.log(typeof blockVar); <span class="comment">// undefined</span>
+console.log(typeof blockConst); <span class="comment">// undefined</span>
+</code></pre></div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      I am block scoped<br>
+      I am also block scoped<br>
+      undefined<br>
+      undefined
+    </div>
+  </div>
+
+  <!-- 5. Lexical Scope -->
+  <h2>5. Lexical Scope</h2>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Functions are executed using the scope in which they were defined, not where they are called.</li>
+        <li>This is called lexical scope.</li>
+      </ul>
+    </div>
+    <div class="code-label">Example:</div>
+    <div class="code-block"><pre><code>
+<span class="keyword">function</span> outer() {
+  <span class="keyword">let</span> outerVar = "Outer";
+
+  <span class="keyword">function</span> inner() {
+    console.log(outerVar);
+  }
+
+  <span class="keyword">return</span> inner;
+}
+
+<span class="keyword">const</span> innerFunc = outer();
+innerFunc(); <span class="comment">// Outer</span>
+</code></pre></div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      Outer
+    </div>
+  </div>
+
+</body>
+</html>

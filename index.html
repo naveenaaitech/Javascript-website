@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive JS Study App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f6fb;
+      display: flex;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Sidebar */
+    nav {
+      width: 250px;
+      background: #1f1f2e;
+      color: white;
+      padding: 20px 15px;
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+      overflow-y: auto;
+      border-right: 2px solid #ff7e5f;
+    }
+
+    nav h2 {
+      font-size: 20px;
+      color: #ff7e5f;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #444;
+      padding-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    nav a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 12px;
+      margin: 5px 0;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      background: #ff7e5f;
+      color: #1f1f2e;
+      transform: translateX(5px);
+    }
+
+    /* Toggle Button on right */
+    .menu-btn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background: linear-gradient(90deg, #ff7e5f, #feb47b);
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      font-size: 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      z-index: 1100;
+      transition: all 0.3s ease;
+    }
+
+    .menu-btn:hover {
+      background: linear-gradient(90deg, #feb47b, #ff7e5f);
+    }
+
+    /* Active Sidebar */
+    nav.active {
+      transform: translateX(0);
+    }
+
+    /* Main Content */
+    iframe {
+      flex: 1;
+      border: none;
+      height: 100vh;
+      width: 100%;
+      transition: margin-left 0.3s ease;
+      margin-left: 0;
+    }
+
+    nav.active ~ iframe {
+      margin-left: 250px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav { width: 220px; }
+      nav.active ~ iframe { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Toggle Button -->
+  <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
+
+  <!-- Sidebar Navigation -->
+  <nav id="sidebar">
+    <h2>JS Topics</h2>
+    <a href="variables.html" target="content-frame">Variables</a>
+    <a href="datatypes.html" target="content-frame">Data Types</a>
+    <a href="operators.html" target="content-frame">Operators</a>
+    <a href="control-statements.html" target="content-frame">Control Statements</a>
+    <a href="functions.html" target="content-frame">Functions</a>
+    <a href="objects.html" target="content-frame">Objects</a>
+    <a href="arrays.html" target="content-frame">Arrays</a>
+    <a href="loops.html" target="content-frame">Loops</a>
+    <a href="strings.html" target="content-frame">Strings</a>
+    <a href="es6.html" target="content-frame">ES6</a>
+    <a href="dom.html" target="content-frame">DOM</a>    
+    <a href="events.html" target="content-frame">Events</a>
+    <a href="windows.html" target="content-frame">Windows Object</a>
+    <a href="api-json.html" target="content-frame">API & JSON</a>
+    <a href="async.html" target="content-frame">Async JS</a>
+    <a href="error-handling.html" target="content-frame">Error Handling</a>
+    <a href="oops.html" target="content-frame">OOPs</a>
+    <a href="closures.html" target="content-frame">Closures</a>
+    <a href="scope.html" target="content-frame">Scope</a>
+    <a href="storage.html" target="content-frame">Web Storage</a>
+    <a href="modules.html" target="content-frame">Modules</a>
+  </nav>
+
+  <!-- Main Content -->
+  <iframe name="content-frame" src="variables.html"></iframe>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("sidebar").classList.toggle("active");
+    }
+  </script>
+
+</body>
+</html>

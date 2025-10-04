@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Closures</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f6fb;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+      line-height: 1.6;
+    }
+    header { margin-bottom: 25px; }
+    h1.page {
+      font-size: 24px;
+      font-weight: 600;
+      background: linear-gradient(90deg, #ff7e5f, #feb47b);
+      color: white;
+      padding: 12px 18px;
+      border-radius: 10px;
+      display: inline-block;
+      margin: 0;
+    }
+    h2 {
+      font-size: 20px;
+      font-weight: 600;
+      background: linear-gradient(90deg, #ff7e5f, #feb47b);
+      color: white;
+      padding: 8px 14px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 25px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 18px;
+      margin: 18px 0;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+    .points {
+      background: #fff4e6;
+      border-left: 5px solid #ff7e5f;
+      padding: 12px 15px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+    .points ul { margin:0; padding-left:18px; }
+    .points li { margin-bottom:6px; }
+    .code-label, .output-label { font-weight:600; color:#ff7e5f; margin:12px 0 8px; }
+    .code-block {
+      background: #1e1e2f;
+      padding: 12px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 14px;
+      white-space: pre;
+      line-height: 1.5;
+      color: #dcdcdc;
+      overflow-x:auto;
+    }
+    .keyword { color:#4ec9b0; }
+    .varname { color:#9cdcfe; }
+    .value { color:#ce9178; }
+    .funcname { color:#dcdcaa; }
+    .output {
+      border: 1px solid #ddd;
+      background: #fafafa;
+      padding: 14px;
+      border-radius: 8px;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 class="page">JavaScript Closures</h1>
+  </header>
+
+  <!-- 1. What is a Closure -->
+  <h2>1. What is a Closure?</h2>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>A closure is a function that has access to its outer function’s scope even after the outer function has returned.</li>
+      </ul>
+    </div>
+    <div class="output-label">Example Preview:</div>
+    <div class="output">
+      Closures allow maintaining state between function calls.
+    </div>
+  </div>
+
+  <!-- 2. How Closures Work -->
+  <h2>2. How Closures Work</h2>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Inner function remembers variables from the outer function.</li>
+      </ul>
+    </div>
+    <div class="code-label">Example:</div>
+    <div class="code-block"><pre><code>
+<span class="keyword">function</span> outer() {
+  <span class="keyword">let</span> count = 0;
+  <span class="keyword">function</span> inner() {
+    count++;
+    console.log(count);
+  }
+  <span class="keyword">return</span> inner;
+}
+
+<span class="keyword">const</span> fn = outer();
+fn(); <span class="comment">// 1</span>
+fn(); <span class="comment">// 2</span>
+fn(); <span class="comment">// 3</span>
+</code></pre></div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      1<br>
+      2<br>
+      3
+    </div>
+  </div>
+
+  <!-- 3. Practical Example -->
+  <h2>3. Practical Example</h2>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Closures are useful for creating private variables.</li>
+      </ul>
+    </div>
+    <div class="code-label">Example:</div>
+    <div class="code-block"><pre><code>
+<span class="keyword">function</span> createCounter() {
+  <span class="keyword">let</span> counter = 0;
+  <span class="keyword">return</span> <span class="keyword">function</span>() {
+    counter++;
+    console.log(counter);
+  };
+}
+
+<span class="keyword">const</span> counter1 = createCounter();
+counter1(); <span class="comment">// 1</span>
+counter1(); <span class="comment">// 2</span>
+</code></pre></div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      1<br>
+      2
+    </div>
+  </div>
+
+  <!-- 4. Using Closures for Data Privacy -->
+  <h2>4. Using Closures for Data Privacy</h2>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Variables inside closure are private and cannot be accessed directly from outside.</li>
+      </ul>
+    </div>
+    <div class="code-label">Example:</div>
+    <div class="code-block"><pre><code>
+<span class="keyword">function</span> secret() {
+  <span class="keyword">let</span> privateVar = "secret";
+  <span class="keyword">return</span> <span class="keyword">function</span>() {
+    console.log(privateVar);
+  };
+}
+
+<span class="keyword">const</span> reveal = secret();
+reveal(); <span class="comment">// secret</span>
+</code></pre></div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      secret
+    </div>
+  </div>
+
+  <!-- 5. Closures in Loops -->
+  <h2>5. Closures in Loops</h2>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Closures help retain loop variable value inside asynchronous callbacks.</li>
+      </ul>
+    </div>
+    <div class="code-label">Example:</div>
+    <div class="code-block"><pre><code>
+<span class="keyword">for</span>(<span class="keyword">let</span> i = 0; i &lt; 3; i++) {
+  <span class="keyword">setTimeout</span>(() =&gt; console.log(i), 1000);
+}
+</code></pre></div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      0<br>
+      1<br>
+      2
+    </div>
+  </div>
+
+</body>
+</html>
