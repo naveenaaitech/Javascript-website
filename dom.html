@@ -71,6 +71,7 @@
       background: #fafafa;
       padding: 14px;
       border-radius: 8px;
+      min-height: 40px;
     }
     button { margin-top: 8px; padding: 6px 12px; border-radius: 5px; border: none; cursor: pointer; background: #ff7e5f; color: white; }
   </style>
@@ -106,7 +107,8 @@
         <li><code>querySelector / querySelectorAll</code></li>
       </ul>
     </div>
-    <div class="code-label">HTML Example:</div>
+
+    <div class="code-label">Example (HTML + JS Combined):</div>
     <div class="code-block"><pre><code>
 &lt;h2 id="title"&gt;Sample Title&lt;/h2&gt;
 &lt;ul&gt;
@@ -114,15 +116,15 @@
   &lt;li class="item"&gt;Item 2&lt;/li&gt;
   &lt;li class="item"&gt;Item 3&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;script&gt;
+const title = document.getElementById("title");
+const items = document.getElementsByClassName("item");
+const firstItem = document.querySelector(".item");
+console.log(title, items, firstItem);
+&lt;/script&gt;
     </code></pre></div>
 
-    <div class="code-label">JavaScript Example:</div>
-    <div class="code-block"><pre><code>
-<span class="keyword">const</span> title = document.getElementById("title");
-<span class="keyword">const</span> items = document.getElementsByClassName("item");
-<span class="keyword">const</span> firstItem = document.querySelector(".item");
-console.log(title, items, firstItem);
-    </code></pre></div>
     <div class="output-label">Output Preview:</div>
     <div class="output">
       &lt;h2 id="title"&gt;Sample Title&lt;/h2&gt;<br>
@@ -140,18 +142,19 @@ console.log(title, items, firstItem);
       </ul>
     </div>
 
-    <div class="code-label">HTML Example:</div>
+    <div class="code-label">Example (HTML + JS Combined):</div>
     <div class="code-block"><pre><code>
-&lt;h2 id="title"&gt;Old Title&lt;/h2&gt;
+&lt;h2 id="title2"&gt;Old Title&lt;/h2&gt;
+
+&lt;script&gt;
+const title2 = document.getElementById("title2");
+title2.innerHTML = "New Title!";
+console.log(title2.textContent);
+&lt;/script&gt;
     </code></pre></div>
 
-    <div class="code-label">JavaScript Example:</div>
-    <div class="code-block"><pre><code>
-title.innerHTML = <span class="value">"New Title!"</span>;
-console.log(title.textContent);
-    </code></pre></div>
     <div class="output-label">Output Preview:</div>
-    <div class="output" id="title-output">
+    <div class="output" id="title2-output">
       New Title!
     </div>
   </div>
@@ -165,19 +168,20 @@ console.log(title.textContent);
       </ul>
     </div>
 
-    <div class="code-label">HTML Example:</div>
+    <div class="code-label">Example (HTML + JS Combined):</div>
     <div class="code-block"><pre><code>
-&lt;h2 id="title"&gt;Styled Title&lt;/h2&gt;
+&lt;h2 id="title3"&gt;Styled Title&lt;/h2&gt;
+
+&lt;script&gt;
+const title3 = document.getElementById("title3");
+title3.style.color = "red";
+title3.style.backgroundColor = "yellow";
+&lt;/script&gt;
     </code></pre></div>
 
-    <div class="code-label">JavaScript Example:</div>
-    <div class="code-block"><pre><code>
-title.style.color = <span class="value">"red"</span>;
-title.style.backgroundColor = <span class="value">"yellow"</span>;
-    </code></pre></div>
     <div class="output-label">Output Preview:</div>
     <div class="output" id="style-output">
-      Sample Title with updated styles
+      Styled Title with updated styles
     </div>
   </div>
 
@@ -190,18 +194,18 @@ title.style.backgroundColor = <span class="value">"yellow"</span>;
       </ul>
     </div>
 
-    <div class="code-label">HTML Example:</div>
+    <div class="code-label">Example (HTML + JS Combined):</div>
     <div class="code-block"><pre><code>
 &lt;button id="btn"&gt;Click Me&lt;/button&gt;
-    </code></pre></div>
 
-    <div class="code-label">JavaScript Example:</div>
-    <div class="code-block"><pre><code>
-<span class="keyword">const</span> btn = document.getElementById("btn");
+&lt;script&gt;
+const btn = document.getElementById("btn");
 btn.addEventListener("click", () =&gt; {
   alert("Button Clicked!");
 });
+&lt;/script&gt;
     </code></pre></div>
+
     <div class="output-label">Output Preview:</div>
     <div class="output">
       Button shows alert when clicked
@@ -219,17 +223,18 @@ btn.addEventListener("click", () =&gt; {
       </ul>
     </div>
 
-    <div class="code-label">HTML Example:</div>
+    <div class="code-label">Example (HTML + JS Combined):</div>
     <div class="code-block"><pre><code>
 &lt;div id="container"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+const container = document.getElementById("container");
+const newItem = document.createElement("p");
+newItem.textContent = "Hello DOM!";
+container.appendChild(newItem);
+&lt;/script&gt;
     </code></pre></div>
 
-    <div class="code-label">JavaScript Example:</div>
-    <div class="code-block"><pre><code>
-<span class="keyword">const</span> newItem = document.createElement("p");
-newItem.textContent = <span class="value">"Hello DOM!"</span>;
-document.body.appendChild(newItem);
-    </code></pre></div>
     <div class="output-label">Output Preview:</div>
     <div class="output">
       New paragraph added below
